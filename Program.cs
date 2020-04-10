@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Cricket_Batting_Average_Calculator
@@ -15,8 +16,10 @@ namespace Cricket_Batting_Average_Calculator
     {
         public string userSeason;
         public int season;
+        public string userScore;
         public int score;
-        public List<Int16> battingAverage = new List<Int16>();
+        public int totalScore;
+        public List<Int32> battingScores = new List<Int32>();
 
         public int SeasonValidator(string seasonStr)
         {
@@ -28,6 +31,17 @@ namespace Cricket_Batting_Average_Calculator
 
             return season = Convert.ToInt16(seasonStr);
         }
+
+        public int ScoreValidator(string scoreStr)
+        {
+            while (!int.TryParse(scoreStr, out int x))
+            {
+                Console.WriteLine("You must input a valid score:");
+                scoreStr = Console.ReadLine();
+            }
+
+            return score = Convert.ToInt32(scoreStr);
+        }
     }
     class Program
     {
@@ -37,15 +51,34 @@ namespace Cricket_Batting_Average_Calculator
 
 
             Console.WriteLine("Welcome to your cricket batting average calculator.");
+            
             Console.WriteLine("Please enter the season your scores are from:");
             usrinpt.userSeason = Console.ReadLine();
             usrinpt.season = usrinpt.SeasonValidator(usrinpt.userSeason);
 
-            usrinpt.battingAverage.Add(10);
-            usrinpt.battingAverage.Add(15);
+            bool addAnotherScore = true;
 
-            foreach(Int16 score in usrinpt.battingAverage)
-            Console.WriteLine(score);
+            while (addAnotherScore)
+            {
+                Console.WriteLine("Please enter a score:");
+                usrinpt.userScore = Console.ReadLine();
+                usrinpt.score = usrinpt.ScoreValidator(usrinpt.userScore);
+                usrinpt.battingScores.Add(usrinpt.score);
+
+                Console.WriteLine("Enter a to add another score or any other key to finishing inputting scores:");
+                string decision = Console.ReadLine();
+                if(decision != "a")
+                {
+                    addAnotherScore = false;
+                }
+            }
+
+            usrinpt.totalScore = usrinpt.battingScores.Sum();
+
+            Console.WriteLine(usrinpt.battingScores.Count);
+
+            Console.WriteLine(usrinpt.totalScore);
+            
             Console.WriteLine(usrinpt.season);
 
             Console.ReadLine();
