@@ -18,6 +18,8 @@ namespace Cricket_Batting_Average_Calculator
         public int season;
         public string userScore;
         public int score;
+        public string userNotOuts;
+        public int notOuts;
         public int totalScore;
         public List<Int32> battingScores = new List<Int32>();
 
@@ -41,6 +43,17 @@ namespace Cricket_Batting_Average_Calculator
             }
 
             return score = Convert.ToInt32(scoreStr);
+        }
+
+        public int NotOutValidator(string notOutsStr)
+        {
+            while (!int.TryParse(notOutsStr, out int x))
+            {
+                Console.WriteLine("You must input a valid number of times you were not out:");
+                notOutsStr = Console.ReadLine();
+            }
+
+            return notOuts = Convert.ToInt32(notOutsStr);
         }
     }
     class Program
@@ -73,6 +86,12 @@ namespace Cricket_Batting_Average_Calculator
                 }
             }
 
+            Console.WriteLine("How many times were you not out?");
+            usrinpt.userNotOuts = Console.ReadLine();
+            usrinpt.notOuts = usrinpt.NotOutValidator(usrinpt.userNotOuts);
+
+
+
             usrinpt.totalScore = usrinpt.battingScores.Sum();
 
             Console.WriteLine(usrinpt.battingScores.Count);
@@ -80,6 +99,8 @@ namespace Cricket_Batting_Average_Calculator
             Console.WriteLine(usrinpt.totalScore);
             
             Console.WriteLine(usrinpt.season);
+
+            Console.WriteLine(usrinpt.notOuts);
 
             Console.ReadLine();
             
