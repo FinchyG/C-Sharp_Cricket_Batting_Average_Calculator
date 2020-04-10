@@ -1,0 +1,13 @@
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\bin\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.exe
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\bin\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.deps.json
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\bin\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.runtimeconfig.json
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\bin\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.runtimeconfig.dev.json
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\bin\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.dll
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\bin\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.pdb
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\obj\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.csprojAssemblyReference.cache
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\obj\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.csproj.CoreCompileInputs.cache
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\obj\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.AssemblyInfoInputs.cache
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\obj\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.AssemblyInfo.cs
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\obj\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.dll
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\obj\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.pdb
+C:\Users\lagau\OneDrive\Documents\Git\C#\Cricket_Batting_Average_Calculator\obj\Debug\netcoreapp3.1\Cricket_Batting_Average_Calculator.genruntimeconfig.cache
