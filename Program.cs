@@ -4,11 +4,7 @@ using System.Collections.Generic;
 
 namespace Cricket_Batting_Average_Calculator
 {
-    abstract class AverageStatement
-    {
-    }
-
-    class UserInput : AverageStatement
+    class UserInput
     {
         public string userSeason;
         public decimal season;
