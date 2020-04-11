@@ -6,54 +6,80 @@ namespace Cricket_Batting_Average_Calculator
 {
     abstract class AverageStatement
     {
-        public string SeasonAverage(Int16 year, Int16 average)
-        {
-            return $"For the {year} your batting average was {average}.";
-        }
     }
 
     class UserInput : AverageStatement
     {
         public string userSeason;
-        public int season;
+        public decimal season;
         public string userScore;
-        public int score;
+        public decimal score;
+        public List<decimal> battingScores = new List<decimal>();
+        public decimal totalScore;
         public string userNotOuts;
-        public int notOuts;
-        public int totalScore;
-        public List<Int32> battingScores = new List<Int32>();
-
-        public int SeasonValidator(string seasonStr)
+        public decimal notOuts;
+        public decimal numOuts;
+        public double battingAverage;
+        
+        public decimal SeasonValidator(string seasonStr)
         {
-            while (!int.TryParse(seasonStr, out int x))
+            while (!decimal.TryParse(seasonStr, out decimal x))
             {
                 Console.WriteLine("You must input a valid season year:");
                 seasonStr = Console.ReadLine();
             }
 
-            return season = Convert.ToInt16(seasonStr);
+            return season = Convert.ToDecimal(seasonStr);
         }
 
-        public int ScoreValidator(string scoreStr)
+        public decimal ScoreValidator(string scoreStr)
         {
-            while (!int.TryParse(scoreStr, out int x))
+            while (!decimal.TryParse(scoreStr, out decimal x))
             {
                 Console.WriteLine("You must input a valid score:");
                 scoreStr = Console.ReadLine();
             }
 
-            return score = Convert.ToInt32(scoreStr);
+            return score = Convert.ToDecimal(scoreStr);
         }
 
-        public int NotOutValidator(string notOutsStr)
+        public decimal NotOutValidator(string notOutsStr)
         {
-            while (!int.TryParse(notOutsStr, out int x))
+            while (!decimal.TryParse(notOutsStr, out decimal x))
             {
                 Console.WriteLine("You must input a valid number of times you were not out:");
                 notOutsStr = Console.ReadLine();
             }
 
-            return notOuts = Convert.ToInt32(notOutsStr);
+            notOuts = Convert.ToDecimal(notOutsStr);
+
+            //check for whether number of not outs is greater than number of innings
+
+            if(notOuts > battingScores.Count)
+            {
+                Console.WriteLine("You must input a valid number of times you were not out:");
+                NotOutValidator(Console.ReadLine());
+            }
+
+            return notOuts;
+        }
+
+        public double BattingAverageCalculator()
+        {
+            totalScore = battingScores.Sum();
+
+            //check whether number of not outs equals number of innings so totalScore is not divided by zero
+
+            if(battingScores.Count == notOuts)
+            {
+                numOuts = 1;
+            }
+            else
+            {
+                numOuts = battingScores.Count - notOuts;
+            }
+            
+            return battingAverage = Math.Round(Convert.ToDouble(totalScore / numOuts),2);
         }
     }
     class Program
@@ -90,20 +116,9 @@ namespace Cricket_Batting_Average_Calculator
             usrinpt.userNotOuts = Console.ReadLine();
             usrinpt.notOuts = usrinpt.NotOutValidator(usrinpt.userNotOuts);
 
+            usrinpt.battingAverage = usrinpt.BattingAverageCalculator();
 
-
-            usrinpt.totalScore = usrinpt.battingScores.Sum();
-
-            Console.WriteLine(usrinpt.battingScores.Count);
-
-            Console.WriteLine(usrinpt.totalScore);
-            
-            Console.WriteLine(usrinpt.season);
-
-            Console.WriteLine(usrinpt.notOuts);
-
-            Console.ReadLine();
-            
+            Console.WriteLine("For the {0} season your batting average was {1}.",usrinpt.season, usrinpt.battingAverage);
         }
     }
 }
